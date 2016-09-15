@@ -1,0 +1,24 @@
+{
+  "name": "euclids-algorithm",
+  "version": "0.1.0",
+  "description": "A simple angular app to compute the greatest common denominator.",
+  "main": "app.js",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-bootstrap": "^2.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "euclids_algorithm"
+  },
+  "keywords": [
+    "euclid",
+    "algorithm"
+  ],
+  "author": "Alex Vild",
+  "license": "MIT"
+}
