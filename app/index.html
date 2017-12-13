@@ -3,18 +3,53 @@
         <meta charset="UTF-8">
         <title>Euclid's Algorithm</title>
         <meta name="viewport" content = "width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="styles/main.css">
+        <link rel="stylesheet" type="text/css" href="main.css">
         <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/flatly/bootstrap.min.css" rel="stylesheet" integrity="sha384-+ENW/yibaokMnme+vBLnHMphUYxHs34h9lpdbSLuAwGkOKFRl4C34WkjazBtb7eT" crossorigin="anonymous">
-    </head>
-    <body class="mainPad" ng-controller="mainController" ng-cloak>
         <script src="node_modules/angular/angular.js"></script>
         <script src="app.js"></script>
         <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
-        <script src="components/home/HomeController.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    </head>
+    <body class="mainPad" ng-controller="mainController" ng-cloak>
         <div class="container">
-            <div ng-view></div>
+            <div class="text-center">
+                <h1>Euclid's Algorithm</h1>
+            </div>
+            <div class="row text-center">
+                <div class="col">
+                    <h4>
+                        Euclid's algorithm is used to determine the greatest common divisor of two numbers. It does this by taking the remainder of the quotient of the larger number
+                        divided by the smaller number, and repeatedly swapping the quotient of this equation with the divisor of the equation before it until the remainder is zero,
+                        at which point the divisor is the greatest common divisor of the two original numbers.
+                    </h4>
+                    <h4>
+                        This site's purpose is to demonstrate this idea visually as opposed to just supplying an answer to the equation.
+                    </h4>
+                </div>
+                <form>
+                    <div>
+                        <label>Enter the first number</label>
+                        <input id="number1" type="text" ng-model="num1">
+                    </div>
+                    <div>
+                    <label>Enter the second number</label>
+                        <input id="number2" type="text" ng-model="num2">
+                    </div>
+                    <div>
+                        <button type="submit" id="submit_button" class="btn btn-primary" ng-click="homeCtrl.getGCD(num1, num2)">Euclid Me Up!</button>
+                    </div>
+                </form>
+                <div ng-if="homeCtrl.answerGen">
+                    <div ng-repeat="x in homeCtrl.quotients track by $index">
+                        {{ homeCtrl.b[$index] }}
+                        <span style="border-top: 1px black solid; border-left: 1px black solid; padding-left: 2px">{{ homeCtrl.a[$index] }}</span>
+                         = {{ x }} remainder {{ homeCtrl.remainders[$index] }}
+                    </div>
+                    <div>
+                        The greatest common divisor of {{ homeCtrl.aconst }} and {{ homeCtrl.bconst }} is: <strong>{{ homeCtrl.answer }}</strong>
+                    </div>
+                </div>
+            </div>
         </div>
-        {{test}}
     </body>
 </html>
